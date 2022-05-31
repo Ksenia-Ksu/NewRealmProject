@@ -15,13 +15,11 @@ class ToDoListViewController: UITableViewController {
         }
     }
     
-    
-    
     override func viewDidLoad() {
         
         super.viewDidLoad()
         
-        print(FileManager.default.urls(for: .documentDirectory, in: .userDomainMask))
+        //print(FileManager.default.urls(for: .documentDirectory, in: .userDomainMask))
         
     }
     
@@ -99,6 +97,7 @@ class ToDoListViewController: UITableViewController {
         return cell
     }
     
+    
     //MARK: - TableView Delegate Methods
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
@@ -121,8 +120,6 @@ class ToDoListViewController: UITableViewController {
     
     
     //MARK: - Saving and loading of items
-    
-    
     
     func loadTasks() {
         
@@ -194,20 +191,18 @@ class ToDoListViewController: UITableViewController {
 }
 
 
-
-
-
 //MARK: - SearchBar Delegate Methods
+
 extension ToDoListViewController: UISearchBarDelegate {
-
+    
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
-
+        
         
         toDoTasks = toDoTasks?.filter("title CONTAINS[cd] %@", searchBar.text!).sorted(byKeyPath: "title", ascending: true)
         tableView.reloadData()
-
+        
     }
-
+    
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         if searchBar.text?.count == 0 {
             loadTasks()
