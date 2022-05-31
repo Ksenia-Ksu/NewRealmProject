@@ -67,8 +67,6 @@ class CategoryViewController: UITableViewController {
     
     //MARK: - TableView Delegate Methods
     
-    
-    
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         performSegue(withIdentifier: Constants.Identifiers.segueFromCategoryToItems, sender: self)
     }
@@ -87,6 +85,7 @@ class CategoryViewController: UITableViewController {
         
     }
     
+    
     //MARK: - Saving and loading data methods
     
     func save(category: Category) {
@@ -101,6 +100,7 @@ class CategoryViewController: UITableViewController {
         
         self.tableView.reloadData()
     }
+    
     
     func loadCategories() {
         
